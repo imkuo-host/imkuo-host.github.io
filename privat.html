@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Imkuo - чат</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="img/img.jpg">
+    	<link rel="stylesheet" href="css/uikit.min.css">
+</head>
+<body>
+    <script src="js/uikit.min.js"></script>
+	<script src="js/uikit-icons.min.js"></script>
+       <div class="uk-animation-slide-top uk-card-small uk-card-default ">
+                <h1 style="font-family: 'Indie Flower', cursive;">Imkuo chat  </h1>
+    </div>
+       
+        <div class="block">
+         <div id="main" style="cursor: pointer" class="uk-animation-slide-top uk-card-small uk-card-default uk-width-1-3@m">
+                <h1 id="smaller" style="font-family: 'Indie Flower', cursive;">Main  </h1>
+    </div>
+       <div id="secret" style= " cursor: pointer ; width: 20%;"class="uk-animation-slide-top uk-card-small uk-card-default uk-width-1-3@m">
+                <h1 style="font-family: 'Indie Flower', cursive;">Small  </h1>
+    </div>
+            </div>
+                 <div style= "position: relative; left: 65%"class="uk-animation-slide-top uk-card-small uk-card-default uk-width-1-3@m">
+                              <h1 style="font-family: 'Indie Flower', cursive;">Say something  </h1>
+                              
+                   <input id="textchat"style="width: 45%; margin-left: 30%" class="uk-input" type="text">
+                   <button id="but3" style="display: block;margin-left:  39%; margin-top:5%; "class="uk-button uk-button-default">Отправить</button>  
+                
+    </div>
+            
+    <div style="left: 25%; position: relative;" class="uk-animation-slide-top uk-card-small uk-card-default uk-width-1-3@m">
+                <p style="font-family: 'Indie Flower', cursive; ">Данный чат не модерируется, сообщения не сохраняются </p>
+                <div id="chat">
+                
+                </div>
+                
+    </div>
+
+  <script>
+   
+      var mas2;
+      var mas;
+      let first=0;
+      let ch=chat.innerHTML;
+     var xhr = new XMLHttpRequest();
+      let checker = setInterval(check,4000);
+      function check(){
+          
+          xhr.open('GET', 'http://188.225.47.187/api/jsonstorage/?id=cc180edf30fa934ede356882b33b2d11',true)
+         xhr.send();
+          xhr.addEventListener('readystatechange', function(){
+            if ((xhr.status==200)&&(xhr.readyState==4)){
+                mas  = JSON.parse(xhr.responseText);
+  
+                
+               
+                chat.innerHTML='<div><b>'+mas.time+'</b><i> '+mas.name+'</i> -> '+mas.text+'</div>';
+    
+  
+                
+            
+            
+            }
+        });
+      }
+                 if (localStorage.getItem("username")==null) window.location="index.html";
+          but3.addEventListener("click", function(){
+    
+
+    but3.addEventListener("click", function(){
+                
+            var          Data = new Date();
+var Year = Data.getFullYear();
+var Month = Data.getMonth();
+var Day = Data.getDate();
+ 
+// Преобразуем месяца
+switch (Month)
+{
+  case 0: fMonth="января"; break;
+  case 1: fMonth="февраля"; break;
+  case 2: fMonth="марта"; break;
+  case 3: fMonth="апреля"; break;
+  case 4: fMonth="мая"; break;
+  case 5: fMonth="июня"; break;
+  case 6: fMonth="июля"; break;
+  case 7: fMonth="августа"; break;
+  case 8: fMonth="сентября"; break;
+  case 9: fMonth="октября"; break;
+  case 10: fMonth="ноября"; break;
+  case 11: fMonth="декабря"; break;
+}
+    mas.name=localStorage.getItem('username');
+              
+              
+                       mas.time = Day+" "+fMonth+" "+Year+" года";
+                mas.text=textchat.value;
+                xhr.open('PUT',"http://188.225.47.187/api/jsonstorage/?id=cc180edf30fa934ede356882b33b2d11",true );
+                xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+                xhr.send(JSON.stringify(mas));
+                console.log("yes");
+           textchat.value="";
+            });
+         
+});
+      main.addEventListener("click", function(){
+          window.location="chat.html";
+      });
+     secret.addEventListener("click", function(){
+          window.location="privat.html";
+      });
+    </script>
+</body>
+</html>

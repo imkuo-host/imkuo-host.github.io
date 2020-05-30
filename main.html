@@ -1,0 +1,410 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Imkuo - главная страница</title>
+
+	<link rel="stylesheet" href="css/uikit.min.css">
+	<link rel="stylesheet" href="style.css">
+<link rel="icon" href="img/img.jpg">
+
+
+</head>
+<body>
+        <div id="closeprofile"style="position:sticky;display: none;z-index: 100; top: 35%; left: 35%; box-shadow: 0 0 1000px rgba(0,0,0,1); "class=" uk-animation-slide-top uk-card-small uk-card-default uk-card-body uk-width-1-4@m ">
+       
+             <button id="exit" style="display: block;margin-left: 38%; margin-top:5%; "class="uk-button uk-button-default">Выйти</button> 
+                <p id="closepr" style="color: grey; position: relative; cursor: pointer">Закрыть</p> 
+    </div>
+        <div id="closelike"style="position:sticky;z-index: 100;display: none;top: 35%; left: 35%; box-shadow: 0 0 1000px rgba(0,0,0,1); "class=" uk-animation-slide-top uk-card-small uk-card-default uk-card-body uk-width-1-4@m ">
+    <h2 style="text-align: center;">Данная функция в разработке</h2>
+             
+                <p id="closeli" style="color: grey; position: relative; cursor: pointer">Закрыть</p> 
+    </div>		
+<script src="js/handlebars.js"></script>
+<script src="js/uikit.min.js"></script>
+	<script src="js/uikit-icons.min.js"></script>
+  <div id="closebox"style="position:sticky;  display: none;z-index: 100; top: 12.5%;  box-shadow: 0 0 1000px rgba(0,0,0,1); "class=" uk-animation-slide-top uk-card-small uk-card-default uk-card-body ">
+     <img id="show" style="height: 700px;width: 700px; margin-left: 25%; cursor:default"class=" uk-width-1-2@m" src="img/12.jpg" alt=""> 
+             <p id="closethis" style="color: grey; position: relative; cursor: pointer">Закрыть</p>
+    </div>
+  
+      <div id="closepub"style="position:sticky;  display: none; z-index: 100; top: 12.5%;  box-shadow: 0 0 1000px rgba(0,0,0,1); "class=" uk-animation-slide-top uk-card-small uk-card-default uk-card-body ">
+      <p>Введите текст поста...</p>
+          <textarea id="pubtext"style="width: 45%; margin-left: 30%" class="uk-textarea" type="text"></textarea>
+              <p>Прекрепите ссылку на изображение</p>
+              
+          <input id="pubimg"style="width: 45%; margin-left: 30%" class="uk-input" type="text">
+                    <button id="but3" style="display: block;margin-left: 46%; margin-top:5%; "class="uk-button uk-button-default">Отправить</button>  
+             <p id="closep" style="color: grey; position: relative; cursor: pointer">Закрыть</p>
+    </div>
+  
+  <div style="display: flex" class="uk-card-small uk-card-default uk-card-body uk-width-4-4@m">
+   <h1 style="font-size: 35px">Imkuo</h1> 
+   <div style="width: 65%"></div>
+   <div style="position: relative; top: 1vh">
+   <img  style="width: 100&; height: 44px;"src="https://i.imgur.com/ilQW3sr.png" alt="">
+   <img id ="chat"style="width: 100&; height: 38px;" src="https://i.imgur.com/7DvxgLr.png" alt="">
+   <img id="openli" style="width: 100&; height: 38px; " src="https://i.imgur.com/Uh0oUjb.png" alt="">
+       <img id="openli2"style="width: 100&; height: 35px; position: relative; top: -2%;"src="https://i.imgur.com/Ti7DJHC.png" alt="">
+       <img style="width: 50px; height: 50px; border: 1px solid black; "id="profile" src="" alt="">
+       
+       </div>
+    </div>
+      
+       <div style="margin-top: 5%;left: 55%; position: relative; "class="uk-card-small uk-card-default uk-card-body  uk-width-1-4@m">
+      <div style="display: flex;">
+      <img style="width: 20%; height:10%;" id="profile2" src="" alt="">
+      <h2 style="margin-left: 5%;"id="username"></h2> </div> 
+          <p style="color: grey; position: relative; top: -3vh">Локальный пользователь</p>
+       
+    </div>
+       
+        <div id="public" style="margin-top: 5%; margin-bottom: 5%; left: 25%; position: relative;  cursor: pointer; "class="uk-card-small uk-card-default uk-card-body  uk-width-1-4@m">
+      
+      
+     <h1 style="color: blue; cursor: pointer">+</h1>
+          <p style="color: blue; position: relative; cursor: pointer;">Опубликовать пост</p>
+       
+    </div>
+     
+     
+
+    <div style="" id="post"></div>
+
+
+     
+      <script>
+          closethis.addEventListener("click", function(){
+            closebox.style.display="none";  
+          });
+          var
+      Data = new Date();
+var Year = Data.getFullYear();
+var Month = Data.getMonth();
+var Day = Data.getDate();
+ 
+// Преобразуем месяца
+switch (Month)
+{
+  case 0: fMonth="января"; break;
+  case 1: fMonth="февраля"; break;
+  case 2: fMonth="марта"; break;
+  case 3: fMonth="апреля"; break;
+  case 4: fMonth="мая"; break;
+  case 5: fMonth="июня"; break;
+  case 6: fMonth="июля"; break;
+  case 7: fMonth="августа"; break;
+  case 8: fMonth="сентября"; break;
+  case 9: fMonth="октября"; break;
+  case 10: fMonth="ноября"; break;
+  case 11: fMonth="декабря"; break;
+}
+ 
+
+var mas;
+
+
+          
+          
+    profile.src=localStorage.getItem('picture');
+    profile2.src=localStorage.getItem('picture');
+          
+          username.innerHTML=localStorage.getItem('username');
+          
+
+          var xhr = new XMLHttpRequest();
+          xhr.open('GET', 'http://188.225.47.187/api/jsonstorage/?id=6971b2c85d6f692771d3ad766b828624',true)
+         xhr.send();
+          xhr.addEventListener('readystatechange', function(){
+            if ((xhr.status==200)&&(xhr.readyState==4)){
+                mas  = JSON.parse(xhr.responseText);
+                  var col=parseInt(mas.col);
+           let i=0;
+            let innering="";
+               // for (i=0; i<)
+               let time = mas.time1;
+                  let tex = mas.text1;
+                  let name = mas.name1;
+                  let pic = mas.pic1;
+                let use1 = mas.pic1
+                let use2 = mas.pic2
+                let use3 = mas.pic3
+                let use4 = mas.pic4
+                let use5 = mas.pic5
+                let use6 = mas.pic6
+                let use7 = mas.pic7
+                let use8 = mas.pic8
+                let use9 = mas.pic9
+                let use10 = mas.pic10
+                
+                innering=innering+`
+  <div id="img1" style="left: 25%; position: relative; "class="uk-card-small uk-card-default uk-card-body  uk-width-1-4@m">
+         <p id="time"style="color: grey; position: relative;">`+time+`</p>
+    <img src="`+pic+`" alt="">
+              <p id="subscr"style="color: grey; position: relative;">`+tex+` `+name+`</p>
+       
+    </div>`;
+                post.innerHTML=innering;
+                
+               time = mas.time2;
+                 tex = mas.text2;
+                  name = mas.name2;
+                  pic = mas.pic2;
+               
+                innering=innering+`
+  <div id="img2"  style="margin-top: 5%; left: 25%; position: relative; "class="uk-card-small uk-card-default uk-card-body  uk-width-1-4@m">
+         <p id="time"style="color: grey; position: relative;">`+time+`</p>
+    <img src="`+pic+`" alt="">
+              <p id="subscr"style="color: grey; position: relative;">`+tex+` `+name+`</p>
+       
+    </div>`;post.innerHTML=innering;
+                           time = mas.time3;
+                 tex = mas.text3;
+                  name = mas.name3;
+                  pic = mas.pic3;
+              innering=innering+`
+  <div id="img3"  style="margin-top: 5%; left: 25%; position: relative; "class="uk-card-small uk-card-default uk-card-body  uk-width-1-4@m">
+         <p id="time"style="color: grey; position: relative;">`+time+`</p>
+    <img src="`+pic+`" alt="">
+              <p id="subscr"style="color: grey; position: relative;">`+tex+` `+name+`</p>
+       
+    </div>`;post.innerHTML=innering;
+                           time = mas.time4;
+                 tex = mas.text4;
+                  name = mas.name4;
+                  pic = mas.pic4;
+              innering=innering+`
+  <div id="img4"  style="margin-top: 5%;left: 25%; position: relative; "class="uk-card-small uk-card-default uk-card-body  uk-width-1-4@m">
+         <p id="time"style="color: grey; position: relative;">`+time+`</p>
+    <img src="`+pic+`" alt="">
+              <p id="subscr"style="color: grey; position: relative;">`+tex+` `+name+`</p>
+       
+    </div>`;post.innerHTML=innering;
+                           time = mas.time5;
+                 tex = mas.text5;
+                  name = mas.name5;
+                  pic = mas.pic5;
+              innering=innering+`
+  <div id="img5"  style="margin-top: 5%;left: 25%; position: relative; "class="uk-card-small uk-card-default uk-card-body  uk-width-1-4@m">
+         <p id="time"style="color: grey; position: relative;">`+time+`</p>
+    <img src="`+pic+`" alt="">
+              <p id="subscr"style="color: grey; position: relative;">`+tex+` `+name+`</p>
+       
+    </div>`;
+               post.innerHTML=innering;            time = mas.time6;
+                 tex = mas.text6;
+                  name = mas.name6;
+                  pic = mas.pic6;
+              innering=innering+`
+  <div id="img6"   style="margin-top: 5%;left: 25%; position: relative; "class="uk-card-small uk-card-default uk-card-body  uk-width-1-4@m">
+         <p id="time"style="color: grey; position: relative;">`+time+`</p>
+    <img src="`+pic+`" alt="">
+              <p id="subscr"style="color: grey; position: relative;">`+tex+` `+name+`</p>
+       
+    </div>`;   post.innerHTML=innering; 
+                           time = mas.time7;
+                 tex = mas.text7;
+                  name = mas.name7;
+                  pic = mas.pic7;
+                 post.innerHTML=innering; 
+              innering=innering+`
+  <div id="img7"  style="margin-top: 5%;left: 25%; position: relative; "class="uk-card-small uk-card-default uk-card-body  uk-width-1-4@m">
+         <p id="time"style="color: grey; position: relative;">`+time+`</p>
+    <img src="`+pic+`" alt="">
+              <p id="subscr"style="color: grey; position: relative;">`+tex+` `+name+`</p>
+       
+    </div>`;
+                           post.innerHTML=innering;    post.innerHTML=innering;    time = mas.time8;
+                 tex = mas.text8;
+                  name = mas.name8;
+                  pic = mas.pic8;
+              innering=innering+`
+  <div  id="img8" style="margin-top: 5%;left: 25%; position: relative; "class="uk-card-small uk-card-default uk-card-body  uk-width-1-4@m">
+         <p id="time"style="color: grey; position: relative;">`+time+`</p>
+    <img src="`+pic+`" alt="">
+              <p id="subscr"style="color: grey; position: relative;">`+tex+` `+name+`</p>
+       
+    </div>`;   post.innerHTML=innering; 
+                           time = mas.time9;
+                 tex = mas.text9;
+                  name = mas.name9;
+                  pic = mas.pic9;
+              innering=innering+`
+  <div id="img9"  style="margin-top: 5%;left: 25%; position: relative; "class="uk-card-small uk-card-default uk-card-body  uk-width-1-4@m">
+         <p id="time"style="color: grey; position: relative;">`+time+`</p>
+    <img src="`+pic+`" alt="">
+              <p id="subscr"style="color: grey; position: relative;">`+tex+` `+name+`</p>
+       
+    </div>`;   post.innerHTML=innering; 
+                           time = mas.time10;
+                 tex = mas.text10;
+                  name = mas.name10;
+                  pic = mas.pic10;
+              innering=innering+`
+  <div id="img10"  style="margin-top: 5%;left: 25%; position: relative; "class="uk-card-small uk-card-default uk-card-body  uk-width-1-4@m">
+         <p id="time"style="color: grey; position: relative;">`+time+`</p>
+    <img src="`+pic+`" alt="">
+              <p id="subscr"style="color: grey; position: relative;">`+tex+` `+name+`</p>
+       
+    </div>`;
+                 post.innerHTML=innering; 
+                  img1.addEventListener("click", function(){
+                 closebox.style.display="block";
+        show.src=use1;
+        });
+           img2.addEventListener("click", function(){
+                   closebox.style.display="block";
+          show.src=use2;
+          });
+           img3.addEventListener("click", function(){
+                   closebox.style.display="block";
+          show.src=use3;
+          });
+           img4.addEventListener("click", function(){
+                   closebox.style.display="block";
+          show.src=use4;
+          });
+           img5.addEventListener("click", function(){
+                   closebox.style.display="block";
+          show.src=use5;
+          });
+           img6.addEventListener("click", function(){
+                   closebox.style.display="block";
+          show.src=use6;
+          });
+           img7.addEventListener("click", function(){
+                   closebox.style.display="block";
+          show.src=use7;
+          });
+           img8.addEventListener("click", function(){
+                   closebox.style.display="block";
+          show.src=use8;
+          });
+           img9.addEventListener("click", function(){
+                   closebox.style.display="block";
+          show.src=use9;
+          });
+           img10.addEventListener("click", function(){
+                   closebox.style.display="block";
+          show.src=use10;
+          });
+      
+            }
+          });
+          
+     but3.addEventListener("click", function(){
+    
+
+          xhr.open('GET', 'http://188.225.47.187/api/jsonstorage/?id=6971b2c85d6f692771d3ad766b828624',true)
+         xhr.send();
+          xhr.addEventListener('readystatechange', function(){
+            if ((xhr.status==200)&&(xhr.readyState==4)){
+                mas  = JSON.parse(xhr.responseText);
+                mas.pic10=mas.pic9;
+                mas.pic9=mas.pic8;
+                mas.pic8=mas.pic7;
+                mas.pic7=mas.pic6;
+                mas.pic6=mas.pic5;
+                mas.pic5=mas.pic4;
+                mas.pic4=mas.pic3;
+                mas.pic3=mas.pic2;
+                mas.pic2=mas.pic1;
+                mas.pic1=pubimg.value;
+                   mas.name10=mas.name9;
+                mas.name9=mas.name8;
+                mas.name8=mas.name7;
+                mas.name7=mas.name6;
+                mas.name6=mas.name5;
+                mas.name5=mas.name4;
+                mas.name4=mas.name3;
+                mas.name3=mas.name2;
+                mas.name2=mas.name1;
+                mas.name1=localStorage.getItem("username");
+                            mas.text10=mas.text9;
+                mas.text9=mas.text8;
+                mas.text8=mas.text7;
+                mas.text7=mas.text6;
+                mas.text6=mas.text5;
+                mas.text5=mas.text4;
+                mas.text4=mas.text3;
+                mas.text3=mas.text2;
+                mas.text2=mas.text1;
+                mas.text1=pubtext.value;
+                
+                
+            var          Data = new Date();
+var Year = Data.getFullYear();
+var Month = Data.getMonth();
+var Day = Data.getDate();
+ 
+// Преобразуем месяца
+switch (Month)
+{
+  case 0: fMonth="января"; break;
+  case 1: fMonth="февраля"; break;
+  case 2: fMonth="марта"; break;
+  case 3: fMonth="апреля"; break;
+  case 4: fMonth="мая"; break;
+  case 5: fMonth="июня"; break;
+  case 6: fMonth="июля"; break;
+  case 7: fMonth="августа"; break;
+  case 8: fMonth="сентября"; break;
+  case 9: fMonth="октября"; break;
+  case 10: fMonth="ноября"; break;
+  case 11: fMonth="декабря"; break;
+}
+ 
+                          mas.time10=mas.time9;
+                mas.time9=mas.time8;
+                mas.time8=mas.time7;
+                mas.time7=mas.time6;
+                mas.time6=mas.time5;
+                mas.time5=mas.time4;
+                mas.time4=mas.time3;
+                mas.time3=mas.time2;
+                mas.time2=mas.time1;
+                mas.time1=Day+" "+fMonth+" "+Year+" года";
+                
+                xhr.open('PUT',"http://188.225.47.187/api/jsonstorage/?id=6971b2c85d6f692771d3ad766b828624",true );
+                xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+                xhr.send(JSON.stringify(mas));
+                
+                window.location="main.html"
+            }});
+         
+});
+          closep.addEventListener("click", function(){
+              closepub.style.display="none";
+          });
+   public.addEventListener("click", function(){
+       closepub.style.display="block";
+   });
+           closepr.addEventListener("click", function(){
+       closeprofile.style.display="none";
+   });
+           exit.addEventListener("click", function(){
+
+               localStorage.clear();
+               window.location="index.html";
+   });
+             if (localStorage.getItem("username")==null) window.location="index.html";
+        profile.addEventListener("click", function(){
+        closeprofile.style.display="block";
+    });
+         
+          closeli.addEventListener("click", function(){
+             closelike.style.display="none"; 
+          });
+           openli.addEventListener("click", function(){
+             closelike.style.display="block"; 
+          });
+           openli2.addEventListener("click", function(){
+             closelike.style.display="block"; 
+          });
+          chat.addEventListener("click", function(){
+              window.location="chat.html"
+          });
+    </script>
+</body>
+</html>

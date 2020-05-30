@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Imkuo - вход</title>
+
+	<link rel="stylesheet" href="css/uikit.min.css">
+	<link rel="stylesheet" href="style.css">
+<link rel="icon" href="img/img.jpg">
+</head>
+<body style="  height: 100vw;">
+	
+	<script src="js/uikit.min.js"></script>
+	<script src="js/uikit-icons.min.js"></script>
+	
+	
+	<div style="display: flex">
+	<img class="img-iph" src="vidio/logo.gif" alt="">
+<div class="uk-card-small uk-card-default uk-card-body uk-width-1-4@m">
+    <h1 >Imkuo</h1>
+    <p>Придумайе никнейм</p>
+    
+      <input id="nick"style="width: 75%; margin-left: 12.5%;" class="uk-input" type="text"  >
+  <button id="but1" style="margin: 10% 25%;" class="uk-button uk-button-default" >Выберите иконку</button>
+      <p>Можете поискать нас на мобильных площадках... </p> 
+      <img style="margin-left: 15%;" src="https://i.imgur.com/0zyTknV.png" alt="">
+      <img src="https://i.imgur.com/MV3yxkq.png" alt="">
+    </div>
+    
+    
+
+
+</div>
+
+
+<div id="mes"  style="position: absolute; top: 0; left: 30vw; display: none; opacity: 0;     box-shadow: 0 0 1000px rgba(0,0,0,0.5);" class=" uk-animation-slide-top uk-card-small uk-card-default uk-card-body uk-width-1-2@m">
+    <h1 id="check" style="cursor: pointer" >Imkuo</h1>
+  <p>Выберите фото для аватарки </p>
+     
+     <p>или вставте ссылку на картику</p> 
+    
+      <input id="answer"style="width: 25%; margin-left: 30%" class="uk-input" type="text"  >
+        <button id="but3" style="" class="uk-button uk-button-default">Выбрать</button>  
+    
+ <div class="uk-grid-small uk-child-width-expand@s uk-text-center" uk-grid>
+    <div>
+        <div id="i1" class="uk-card uk-card-default uk-card-body"><img src="img/7.jpg" alt=""></div>
+    </div>
+    <div>
+        <div id="i2"  class="uk-card uk-card-default uk-card-body"><img src="img/8.jpg" alt=""></div>
+    </div>
+    <div>
+        <div id="i3"  class="uk-card uk-card-default uk-card-body"><img src="img/9.jpg" alt=""></div>
+    </div>
+</div>
+     <div  class="uk-grid-small uk-child-width-expand@s uk-text-center" uk-grid>
+    <div>
+        <div id="i4"  class="uk-card uk-card-default uk-card-body"><img src="img/10.jpg" alt=""></div>
+    </div>
+    <div>
+        <div  id="i5"  class="uk-card uk-card-default uk-card-body"><img src="img/11.jpg" alt=""></div>
+    </div>
+    <div>
+        <div id="i6"  class="uk-card uk-card-default uk-card-body"><img src="img/12.jpg" alt=""></div>
+    </div>
+</div>
+     <div  class="uk-grid-small uk-child-width-expand@s uk-text-center" uk-grid>
+    <div>
+        <div id="i7"  class="uk-card uk-card-default uk-card-body"><img src="img/13.jpg" alt=""></div>
+    </div>
+    <div>
+        <div id="i8"  class="uk-card uk-card-default uk-card-body"><img src="img/14.jpg" alt=""></div>
+    </div>
+    <div>
+        <div id="i9"  class="uk-card uk-card-default uk-card-body"><img src="img/15.jpg" alt=""></div>
+    </div>
+</div>
+     <div   class="uk-grid-small uk-child-width-expand@s uk-text-center" uk-grid>
+    <div>
+        <div id="i10"  class="uk-card uk-card-default uk-card-body"><img src="img/16.jpg" alt=""></div>
+    </div>
+    <div>
+        <div id="i11"  class="uk-card uk-card-default uk-card-body"><img src="img/17.jpg" alt=""></div>
+    </div>
+    <div>
+        <div id="i12"  class="uk-card uk-card-default uk-card-body"><img src="img/18.jpg" alt=""></div>
+    </div>
+</div>
+    <div   class="uk-grid-small uk-child-width-expand@s uk-text-center" uk-grid>
+    <div>
+        <div id="i13"  class="uk-card uk-card-default uk-card-body"><img src="img/19.jpg" alt=""></div>
+    </div>
+    <div>
+        <div  id="i14" class="uk-card uk-card-default uk-card-body"><img src="img/20.jpg" alt=""></div>
+    </div>
+    <div>
+        <div id="i15"  class="uk-card uk-card-default uk-card-body"><img src="img/21.jpg" alt=""></div>
+    </div>
+    
+</div>
+
+       
+    </div>
+
+<script>
+but1.addEventListener("click", function(){
+  if (nick.value!='') {mes.style.display="block"; 
+  check.style.display="block"; } else alert("Введите никнейм")
+});
+   
+    
+   check.addEventListener("click", function(){
+  mes.style.display="none"; 
+  check.style.display="none"; 
+});
+    
+    i1.addEventListener("click", function(){
+        answer.value="img/7.jpg";
+    });
+      i2.addEventListener("click", function(){
+        answer.value="img/8.jpg";
+    });
+      i3.addEventListener("click", function(){
+        answer.value="img/9.jpg";
+    });
+      i4.addEventListener("click", function(){
+        answer.value="img/10.jpg";
+    });
+    
+      i5.addEventListener("click", function(){
+        answer.value="img/11.jpg";
+    });
+      i6.addEventListener("click", function(){
+        answer.value="img/12.jpg";
+    });
+      i7.addEventListener("click", function(){
+        answer.value="img/13.jpg";
+    });
+      i8.addEventListener("click", function(){
+        answer.value="img/14.jpg";
+    });
+      i9.addEventListener("click", function(){
+        answer.value="img/15.jpg";
+    });
+      i10.addEventListener("click", function(){
+        answer.value="img/16.jpg";
+    });
+      i11.addEventListener("click", function(){
+        answer.value="img/17.jpg";
+    });
+      i12.addEventListener("click", function(){
+        answer.value="img/18.jpg";
+    });
+      i13.addEventListener("click", function(){
+        answer.value="img/19.jpg";
+    });
+      i14.addEventListener("click", function(){
+        answer.value="img/20.jpg";
+    });
+       i15.addEventListener("click", function(){
+        answer.value="img/21.jpg";
+    });
+    if (localStorage.getItem("username")!=null) window.location="main.html";
+    var mas;
+          var xhr = new XMLHttpRequest();
+     but3.addEventListener("click", function(){
+    localStorage.setItem('username', nick.value); 
+          localStorage.setItem('picture', answer.value); 
+
+          xhr.open('GET', 'http://188.225.47.187/api/jsonstorage/?id=6971b2c85d6f692771d3ad766b828624',true)
+         xhr.send();
+          xhr.addEventListener('readystatechange', function(){
+            if ((xhr.status==200)&&(xhr.readyState==4)){
+                mas  = JSON.parse(xhr.responseText);
+                mas.pic10=mas.pic9;
+                mas.pic9=mas.pic8;
+                mas.pic8=mas.pic7;
+                mas.pic7=mas.pic6;
+                mas.pic6=mas.pic5;
+                mas.pic5=mas.pic4;
+                mas.pic4=mas.pic3;
+                mas.pic3=mas.pic2;
+                mas.pic2=mas.pic1;
+                mas.pic1=answer.value;
+                   mas.name10=mas.name9;
+                mas.name9=mas.name8;
+                mas.name8=mas.name7;
+                mas.name7=mas.name6;
+                mas.name6=mas.name5;
+                mas.name5=mas.name4;
+                mas.name4=mas.name3;
+                mas.name3=mas.name2;
+                mas.name2=mas.name1;
+                mas.name1=nick.value;
+                     mas.text10=mas.text9;
+                mas.text9=mas.text8;
+                mas.text8=mas.text7;
+                mas.text7=mas.text6;
+                mas.text6=mas.text5;
+                mas.text5=mas.text4;
+                mas.text4=mas.text3;
+                mas.text3=mas.text2;
+                mas.text2=mas.text1;
+                mas.text1="Обновлен статус";
+                
+            var          Data = new Date();
+var Year = Data.getFullYear();
+var Month = Data.getMonth();
+var Day = Data.getDate();
+ 
+// Преобразуем месяца
+switch (Month)
+{
+  case 0: fMonth="января"; break;
+  case 1: fMonth="февраля"; break;
+  case 2: fMonth="марта"; break;
+  case 3: fMonth="апреля"; break;
+  case 4: fMonth="мая"; break;
+  case 5: fMonth="июня"; break;
+  case 6: fMonth="июля"; break;
+  case 7: fMonth="августа"; break;
+  case 8: fMonth="сентября"; break;
+  case 9: fMonth="октября"; break;
+  case 10: fMonth="ноября"; break;
+  case 11: fMonth="декабря"; break;
+}
+ 
+                          mas.time10=mas.time9;
+                mas.time9=mas.time8;
+                mas.time8=mas.time7;
+                mas.time7=mas.time6;
+                mas.time6=mas.time5;
+                mas.time5=mas.time4;
+                mas.time4=mas.time3;
+                mas.time3=mas.time2;
+                mas.time2=mas.time1;
+                mas.time1=Day+" "+fMonth+" "+Year+" года";
+                
+                xhr.open('PUT',"http://188.225.47.187/api/jsonstorage/?id=6971b2c85d6f692771d3ad766b828624",true );
+                xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+                xhr.send(JSON.stringify(mas));
+              alert('Успешно');
+                window.location="main.html";
+            }});
+         
+});
+    
+                
+                
+    </script>
+</body>
+</html>
